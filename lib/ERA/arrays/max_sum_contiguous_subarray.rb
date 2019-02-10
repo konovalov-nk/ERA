@@ -9,13 +9,15 @@ module ERA
     #   the contiguous subarray [4, -1, 2, 1] has the largest sum = 6.
     # For this problem, return the maximum sum.
     #
-    # Tags: kadane, dynamic prorgramming
+    # Tags: kadane, dynamic programming
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     class MaxSumContiguousSubarray
       # @param array : constant array of integers
       # @return an integer
       def solution(array)
-        sum, *a = array
-        a.reduce(sum) do |max, x|
+        sum, *array = array
+        array.reduce(sum) do |max, x|
           sum = [x, sum + x].max
           [max, sum].max
         end

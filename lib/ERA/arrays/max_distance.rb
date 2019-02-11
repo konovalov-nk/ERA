@@ -11,7 +11,7 @@ module ERA
     #   Output : 2
     #   for the pair (3, 4)
     #
-    # Tags: , dynamic programming
+    # Tags: pre-compute
     # Time Complexity: O(n * log n)
     # Space Complexity: O(n)
     class MaxDistance

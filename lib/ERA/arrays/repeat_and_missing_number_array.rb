@@ -24,16 +24,17 @@ module ERA
       # @return an integer
       def solution(array)
         return -1 unless array.is_a? Array
+        return [0, 0] unless array.size > 1
 
         n = array.size
-        arithmetic_sum = (n + 1) * n / 2
-        quadratic_sum = (n + 1) * (2 * n + 1) * n / 6
+        arithmetic = (n + 1) * n / 2
+        quadratic = (n + 1) * (2 * n + 1) * n / 6
 
-        x, y = array.reduce([arithmetic_sum, quadratic_sum]) do |(x, y), el|
+        x, y = array.reduce([arithmetic, quadratic]) do |(x, y), el|
           [x - el, y - el**2]
         end
 
-        [(y - x**2) / 2, (y + x**2) / 2]
+        [(y / x - x) / 2, (y / x + x) / 2]
       end
     end
   end
